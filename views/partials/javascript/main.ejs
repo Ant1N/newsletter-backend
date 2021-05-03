@@ -1,0 +1,21 @@
+<script>
+  document.getElementById('loginBtn').addEventListener('click', () => {
+    let userLogin = {
+      email: document.getElementById('mailInput').value,
+      password: document.getElementById('passwordInput').value,
+    };
+
+    fetch('/login', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(userLogin),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        document.cookie = 'authorization=' + data.accessToken;
+        location.reload();
+      });
+  });
+</script>

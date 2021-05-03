@@ -1,0 +1,54 @@
+<div id="userPage">
+  <div>
+    <header>
+      <div class="uk-navbar-container">
+        <nav class="uk-navbar uk-container" uk-navbar>
+          <div class="uk-navbar-left">
+            <a class="uk-navbar-item uk-logo" href="#">Antin Enterprises</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="uk-section uk-section-default">
+        <div class="uk-container">
+          <div class="uk-grid uk-flex-center uk-text-center">
+            <div class="uk-width-1-2@s">
+              <h2 class="uk-heading-primary">
+                Welcome to Antin enterprises admin-page
+              </h2>
+              <% for(var i=0; i < users.length; i++) { %>
+                <tr>
+                 <td><%= users[i].email %></td>
+                 <td><%= users[i].subscribed %></td>
+                 <br />
+                 </tr>
+                <% } %>
+              <button class="uk-button uk-button-default"
+              onclick="logout()">Logga ut</button>
+              <script>
+                function logout() {
+                  document.cookie = 'authorization=' + '';
+                  location.reload();
+                }
+              </script>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="uk-section uk-section-small">
+        <div class="uk-container">
+          <div
+            class="uk-grid uk-flex-between"
+            style="position: absolute; bottom: 0px; margin: auto"
+          >
+            <p>&copy; 2021 Antin, Inc.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <%- include('javascript/main.ejs') %>
+</div>
