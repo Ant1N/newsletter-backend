@@ -59,9 +59,5 @@ router.post('/login', (req, res) => {
   });
 });
 
-// router.get('/logout', (req, res) => {
-//   console.log(req);
-//   req.cookies.set('testtoken', { expires: Date.now() });
-// });
 
 module.exports = router;
